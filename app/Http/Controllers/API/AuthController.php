@@ -50,8 +50,9 @@ class AuthController extends Controller
         return response()->json([
             'user' => $user,
             'authorization' => [
-                'token' => $token,
-                'type' => 'bearer',
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => Carbon::now()->addMinute(56)
             ]
         ]);
     }
